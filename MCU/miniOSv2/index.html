@@ -5,24 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>miniOSv2 - zpxy的学习记录</title>
+    <title>miniOSv2 - zpxy的开源主页</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
         var mkdocs_page_name = "miniOSv2";
-        var mkdocs_page_input_path = "MCU\\miniOSv2.md";
+        var mkdocs_page_input_path = "MCU/miniOSv2.md";
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -31,10 +30,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> zpxy的学习记录
+          <a href="../.." class="icon icon-home"> zpxy的开源主页
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -51,6 +50,30 @@
                   <li class="toctree-l1"><a class="reference internal" href="../stc8051/">stc8051</a>
                   </li>
                   <li class="toctree-l1 current"><a class="reference internal current" href="./">miniOSv2</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#1minios">1、miniOS相关类型定义</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#2">2、实时任务结构体</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#3">3、任务函数接口</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#4">4、请用户自己实现以下两个函数</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#5main">5、main程序如何书写</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#6">6、思维导图</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#7">7、流程图</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#8">8、增加信号量</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#81">8.1 信号量结构体</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#82">8.2 信号量接口函数和功能</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">验证之路</span></p>
@@ -58,9 +81,22 @@
                   <li class="toctree-l1"><a class="reference internal" href="../../UVM/studyUVMfromZero/">从零开始学习UVM实战</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">一生一芯</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../about/">关于我</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YSYX/nemu/">NEMU学习心得</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YSYX/npc/">NPC学习心得</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ubuntu折腾指南</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ubuntu/how-to-use-ubuntu/">打造一个良好的使用环境</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">==============</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">关于我</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -69,15 +105,15 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">zpxy的学习记录</a>
+          <a href="../..">zpxy的开源主页</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>单片机 &raquo;</li>
-      <li>miniOSv2</li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">单片机</li>
+      <li class="breadcrumb-item active">miniOSv2</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -86,7 +122,241 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <p>等待添加</p>
+                <h1 id="minios-v2"><center>   miniOS v2 小记   </center></h1>
+<ul>
+<li><strong>HNU HaiKou Mei Lan</strong></li>
+<li><strong>项目：——miniOS小型多任务系统设计</strong></li>
+<li><strong>功能：适配Cortex M3</strong></li>
+<li><strong>致谢：感谢rt_thread的项目</strong></li>
+<li><strong>copyright v2.0 2022.07.31</strong>
+————————————————————</li>
+<li><strong>功能：适配Cortex M0</strong></li>
+<li><strong>致谢：感谢uC/os II的项目</strong></li>
+<li><strong>copyright v2.1 2022.08.04</strong>
+————————————————————</li>
+<li><strong>功能：增加信号量，现在是结构体数组的方式</strong></li>
+<li><strong>有信号量初始化和take\give两个函数</strong></li>
+<li><strong>可以进行单信号量在两个线程间的乒乓实验</strong></li>
+<li><strong>copyright v2.2 2022.08.11</strong></li>
+</ul>
+<blockquote>
+<ul>
+<li>这个项目起源于在使用RT-thread nano中的一点兴趣，然后就写了这个miniOS  </li>
+<li>第一版本我采用的是时间片轮转执行的方案，和之前的前后台系统没有差别，但是逻辑性增加了  </li>
+<li>第二版本我采用的是实时系统的方案，利用了上下文切换和可悬浮中断，实现了非阻塞延时</li>
+</ul>
+</blockquote>
+<h2 id="1minios">1、miniOS相关类型定义</h2>
+<pre><code class="language-c">typedef enum {  
+    os_Task_sys = 0,  
+    os_Task_gui,  
+    os_Task_key,  
+    os_Task_led,  
+    os_Task_wifi,
+    os_Task_uart,  
+    os_Task_test,  
+    os_Task_idle,//空闲线程永远在os_Task_sum计数之前，所有线程之后  
+    os_Task_sum  
+}miniOS_ID_t;//线程ID定义，ID越小优先级越高  
+
+typedef enum {  
+    os_suspend=0,//挂起  
+    os_sleep,    //睡眠或者说就绪  
+    os_run       //运行  
+}miniOS_TaskStatus_t;  
+
+typedef enum {  
+    staticSTK = 0,  
+    dynamicSTK  
+}miniOS_STK_Type;  
+
+</code></pre>
+<h2 id="2">2、实时任务结构体</h2>
+<pre><code class="language-c">/*实时任务结构体*/
+/*
+    * 【!!! 重要信息 Attion】
+    * 正是因为结构体第一个变量是栈指针
+    * 因此巧妙的现象出现了【线程栈指针 === 线程结构体指针】 
+    * 方便了汇编代码和内核代码的书写 
+    * miniOS_STK  *stackptr;            # 线程栈地址，stk数组尾部减一的地址，&amp;xStack[XStackSize -1]
+    * void (*task)(void *arg);          # 线程入口函数
+    * void *taskentry;                  # 线程入口函数
+    * void *sp;                         # 栈基地址 xStack
+    * int  thisID;                      # 线程ID号
+
+    * uint16_t stackSize;               # 线程栈大小
+
+    * miniOS_TaskStatus_t runflag;      # 线程状态，os_suspend,os_sleep,os_run
+    * miniOS_TaskStatus_t runState;     # 线程状态寄存器
+    * uint16_t runPerid ;               # 线程时间片
+    * uint16_t runTimer ;               # 线程时间片计数器
+    * uint32_t nextTime ;               # 线程挂起时间
+*/
+typedef struct miniOS_RtTask_s{
+    miniOS_STK  *stackptr;
+    void (*task)(void *arg);
+    void *taskentry;
+    void *sp;
+    int  thisID;
+    uint16_t stackSize;
+
+    miniOS_TaskStatus_t runflag;
+    miniOS_TaskStatus_t runState;
+    uint16_t runPerid ;
+    uint16_t runTimer ;
+    uint32_t nextTime ;
+
+}miniOS_RtTask_t,*miniOS_RtTask_p;
+</code></pre>
+<blockquote>
+<p>!!! 重要信息 重要信息
+  * 正是因为结构体第一个变量是栈指针
+  * 因此巧妙的现象出现了【线程栈指针 === 线程结构体指针】 
+  * 方便了汇编代码和内核代码的书写 </p>
+</blockquote>
+<h2 id="3">3、任务函数接口</h2>
+<pre><code class="language-c">/*miniOS RT 任务结束函数*/
+void Task_End(); 
+
+/*miniOS RT 线程创建(注册)函数*/
+/*
+* miniOS_ID_t wantRegTaskId,  # 线程表中的ID号
+* miniOS_TASK task,           # 线程入口地址 void (*taskEntry)(void *arg)
+    * taskEntry sample:
+        void taskEntry(void *arg)
+        {
+            NEW  Variables;
+            SOME init;
+            WHILE(1){
+                       TO DO YOUR THINGS;
+            }
+        }
+
+* miniOS_STK_Type stkTtpe,    # 线程栈类型
+* miniOS_STK *stackBaseptr    # 线程栈基地址
+* miniOS_STK *stackptr ,      # 线程栈底地址，采用递减栈空间使用
+
+* miniOS_TaskStatus_t runflag,# 线程调度第一次标志
+* uint16_t runPerid,          # 线程拥有时间片
+* uint16_t runTime            # 线程延迟启动时间，配合os_suspend标志
+*/
+void miniOS_task_create(miniOS_ID_t wantRegTaskId,
+               miniOS_TASK task,  
+               miniOS_STK_Type stkTtpe,
+                       miniOS_STK *stackBaseptr,  
+               miniOS_STK *stackptr,
+               //uint16_t   stacksize,
+               miniOS_TaskStatus_t runflag,
+               uint16_t runPerid,
+               uint16_t runTime);
+
+/*miniOS RT系统初始化*/
+void miniOS_Rt_Init();
+
+/*miniOS RT设置下一次线程调度指针*/
+void setNext(miniOS_ID_t id);
+
+/*miniOS RT 线程删除函数*/
+void miniOS_RtTask_Delete(miniOS_ID_t taskID);
+
+/*miniOS RT 线程切换函数*/
+void miniOS_RtTask_SW();
+
+/*miniOS RT 系统调度启动函数*/
+void miniOS_Rt_Start();
+
+/*miniOS RT 系统延时函数*/
+void miniOS_Rt_Delay(uint16_t delayCount);
+
+/*阻塞延时函数*/
+void miniOS_delay_ms(uint16_t nTick);
+
+/*miniOS RT 滴答定时器服务函数*/
+/*todo : 将此函数放入void SysTick_Handler(void)
+ *sample:
+    void SysTick_Handler(void)
+    {
+       miniOS_RtTask_sysTickHandle();
+    }
+*/
+void miniOS_RtTask_sysTickHandle();
+
+</code></pre>
+<h2 id="4">4、请用户自己实现以下两个函数</h2>
+<pre><code class="language-c">/*请用户自己实现滴答定时器初始化*/
+__weak void sysTick_Init();
+
+/*请用户自己实现硬件初始化*/
+__weak void miniOS_HW_Init();
+</code></pre>
+<h2 id="5main">5、main程序如何书写</h2>
+<p><center></p>
+<blockquote>
+<p>main函数推荐的程序结构如下：</p>
+</blockquote>
+<pre><code class="language-flow">start=&gt;start=&gt;start: 开始  
+input1=&gt;inputoutput: 变量与栈初始化  
+opt1=&gt;operation: 时钟初始化：sysTick_Init()
+opt2=&gt;operation: 硬件初始化：miniOS_HW_Init()
+opt3=&gt;operation: 系统初始化：miniOS_Rt_Init()
+opt4=&gt;operation: 线程创建:miniOS_task_create(……);
+opt5=&gt;operation: 设置空闲线程setNext(os_Task_idle)
+opt6=&gt;operation: 进入OS调度：miniOS_Rt_Start();
+end=&gt;end: 结束
+
+start-&gt;input1-&gt;opt1-&gt;opt2-&gt;opt3-&gt;opt4-&gt;opt5-&gt;opt6-&gt;end
+
+</code></pre>
+<p></center></p>
+<h2 id="6">6、思维导图</h2>
+<pre><code class="language-plantuml">@startmindmap
+* miniOS
+** 【miniOS_ID_t】 和 【taskTable】(序号越小优先级越高)
+*** 自定义Task
+*** Idle Task
+*** os_Task_sum(永远不做调度，仅仅是作为数组的界)
+** miniOS_TaskStatus_t(三类系统状态)
+*** 挂起
+*** 休眠
+*** 运行
+** miniOS_STK_Type 线程栈类型
+*** 静态栈 staticSTK
+**** 事先分配
+*** 动态栈 dynamicSTK
+**** 需要自己malloc和free
+** miniOS函数接口
+*** miniOS_task_create
+*** miniOS_Rt_Init
+*** setNext(miniOS_ID_t id)
+*** miniOS_RtTask_Delete
+*** miniOS_RtTask_SW
+*** miniOS_Rt_Start()
+*** miniOS_Rt_Delay(uint16_t delayCount)
+*** miniOS_delay_ms(uint16_t nTick)
+*** miniOS_RtTask_sysTickHandle()
+*** __weak void sysTick_Init(); 请用户自己实现滴答定时器初始化
+*** __weak void miniOS_HW_Init(); 请用户自己实现硬件初始化
+** Main函数建议写法
+*** 先新建栈、变量
+*** 滴答定时器、相关硬件初始化
+*** miniOS初始化
+*** 调用任务创建函数
+**** 任务函数：永不返回，使用miniOS_Rt_Delay让出CPU
+*** 设置Idle线程
+*** 开启miniOS调度
+@endmindmap
+</code></pre>
+<h2 id="7">7、流程图</h2>
+<p><center></p>
+<pre><code class="language-mermaid">graph TD;
+a([开始])--&gt;opt0a[变量初始化]--&gt;opt1;
+a--&gt;opt0b[栈初始化]--&gt;opt1;
+opt1[时钟初始化 sysTick_Init]--&gt;opt2[硬件初始化 miniOS_HW_Init]--&gt;opt3[miniOS初始化]--&gt;opt4[任务创建]--&gt;opt5[设置Idlee线程]--&gt;opt6[开启任务调度]--&gt;b([end]);
+</code></pre>
+<p></center></p>
+<h2 id="8">8、增加信号量</h2>
+<h5 id="81">8.1 信号量结构体</h5>
+<h5 id="82">8.2 信号量接口函数和功能</h5>
               
             </div>
           </div><footer>
@@ -122,14 +392,15 @@
     
   </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme_extra.js" defer></script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

@@ -5,10 +5,10 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../img/favicon.ico" />
-    <title>关于我 - zpxy的学习记录</title>
+    <title>关于我 - zpxy的开源主页</title>
     <link rel="stylesheet" href="../css/theme.css" />
     <link rel="stylesheet" href="../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
@@ -17,12 +17,11 @@
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -31,10 +30,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href=".." class="icon icon-home"> zpxy的学习记录
+          <a href=".." class="icon icon-home"> zpxy的开源主页
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -58,13 +57,26 @@
                   <li class="toctree-l1"><a class="reference internal" href="../UVM/studyUVMfromZero/">从零开始学习UVM实战</a>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">一生一芯</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../YSYX/nemu/">NEMU学习心得</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../YSYX/npc/">NPC学习心得</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ubuntu折腾指南</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../ubuntu/how-to-use-ubuntu/">打造一个良好的使用环境</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">==============</span></p>
               <ul class="current">
-                <li class="toctree-l1 current"><a class="reference internal current" href="./">关于我</a>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">关于我</a>
     <ul class="current">
     <li class="toctree-l2"><a class="reference internal" href="#_1">会什么技能点</a>
     </li>
     </ul>
-                </li>
+                  </li>
               </ul>
       </div>
     </div>
@@ -73,14 +85,15 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="..">zpxy的学习记录</a>
+          <a href="..">zpxy的开源主页</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href=".." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-      <li>关于我</li>
+    <li><a href=".." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">==============</li>
+      <li class="breadcrumb-item active">关于我</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -94,15 +107,17 @@
 <h2 id="_1">会什么技能点</h2>
 <p>stm32 : 会使用MDK对各类arm单片机进行编程，了解usart、timer、iic、spi等接口的使用，了解串口wifi的AT命令操作，了解串口蓝牙的AT命令操作。会写GCC汇编启动和链接文件，略微明白嵌入式操作系统的原理。使用c++语言对单片机进行抽象化编程，了解过面向对象编程。处理过物联网联网和数据对接，撰写过最简单的MQTT组包和解包的库（c动态数组方式）。</p>
 <p>pcb : 会使用AD 15 绘制电路符号库和封装库，会使用AD15绘制常见的单片机板子（四层）。懂得立创EDA的协作画板模式，并且基于立创EDA做出过一些开源小作品。</p>
-<p>matlab: tbd</p>
-<p>hfss: tbd</p>
-<p>verilog: tbd</p>
-<p>uvm: 已经学习了一点UVM实战的内容</p>
+<p>matlab: 会一点，比如数据处理，图形，天线仿真</p>
+<p>hfss: 2.4G~6G Hz 超宽带pcb天线仿真课程设计</p>
+<p>verilog: 基本的硬件模块设计、testbench设计</p>
+<p>systemverilog: 基本的硬件模块设计、基于sv的硬件验证平台搭建</p>
+<p>UVM: 从零开始搭建过一个模块的验证环境，正好做过UVM的全流程验证</p>
+<p>RISC-V： 熟悉指令集手册</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../UVM/studyUVMfromZero/" class="btn btn-neutral float-left" title="从零开始学习UVM实战"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../ubuntu/how-to-use-ubuntu/" class="btn btn-neutral float-left" title="打造一个良好的使用环境"><span class="icon icon-circle-arrow-left"></span> Previous</a>
     </div>
 
   <hr/>
@@ -125,19 +140,20 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../UVM/studyUVMfromZero/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../ubuntu/how-to-use-ubuntu/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
   </span>
 </div>
-    <script>var base_url = '..';</script>
-    <script src="../js/theme_extra.js" defer></script>
-    <script src="../js/theme.js" defer></script>
-      <script src="../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "..";</script>
+    <script src="../js/theme_extra.js"></script>
+    <script src="../js/theme.js"></script>
+      <script src="../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

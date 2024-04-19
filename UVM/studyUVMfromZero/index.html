@@ -5,24 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>从零开始学习UVM实战 - zpxy的学习记录</title>
+    <title>从零开始学习UVM实战 - zpxy的开源主页</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/styles/github.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
         var mkdocs_page_name = "\u4ece\u96f6\u5f00\u59cb\u5b66\u4e60UVM\u5b9e\u6218";
-        var mkdocs_page_input_path = "UVM\\studyUVMfromZero.md";
+        var mkdocs_page_input_path = "UVM/studyUVMfromZero.md";
         var mkdocs_page_url = null;
       </script>
     
-    <script src="../../js/jquery-3.6.0.min.js" defer></script>
     <!--[if lt IE 9]>
       <script src="../../js/html5shiv.min.js"></script>
     <![endif]-->
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.5.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script> 
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
 </head>
 
 <body class="wy-body-for-nav" role="document">
@@ -31,10 +30,10 @@
     <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
     <div class="wy-side-scroll">
       <div class="wy-side-nav-search">
-          <a href="../.." class="icon icon-home"> zpxy的学习记录
+          <a href="../.." class="icon icon-home"> zpxy的开源主页
         </a><div role="search">
   <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
-      <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
   </form>
 </div>
       </div>
@@ -82,9 +81,22 @@
     </ul>
                   </li>
               </ul>
+              <p class="caption"><span class="caption-text">一生一芯</span></p>
               <ul>
-                <li class="toctree-l1"><a class="reference internal" href="../../about/">关于我</a>
-                </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YSYX/nemu/">NEMU学习心得</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../YSYX/npc/">NPC学习心得</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">ubuntu折腾指南</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../ubuntu/how-to-use-ubuntu/">打造一个良好的使用环境</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">==============</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../about/">关于我</a>
+                  </li>
               </ul>
       </div>
     </div>
@@ -93,15 +105,15 @@
     <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
       <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../..">zpxy的学习记录</a>
+          <a href="../..">zpxy的开源主页</a>
         
       </nav>
       <div class="wy-nav-content">
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
-    <li><a href="../.." class="icon icon-home" alt="Docs"></a> &raquo;</li>
-          <li>验证之路 &raquo;</li>
-      <li>从零开始学习UVM实战</li>
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">验证之路</li>
+      <li class="breadcrumb-item active">从零开始学习UVM实战</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -110,7 +122,7 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h2 id="uvmu"><strong>从零学习从零开始练手UVM实战U</strong></h2>
+                <h2 id="uvm"><strong>从零学习从零开始练手UVM实战</strong></h2>
 <hr />
 <p>通过手打并验证张强的《UVM实战》第二章是了解UVM验证方法的最佳途径。这一章节使用一个最简单的DUT开始，一步步地构建出UVM树，最后集成sequence 和sequencer，完成一个完整的基于UVM的验证平台的构建。
 为了能顺利的练习这一章节的代码，可以使用带有vcs和verdi的IC开发环境，最好使用Linux版本。如果不使用Linux版本，在windows上使用QuestaSim也是可以的。</p>
@@ -549,14 +561,12 @@ git commit -m “first commit with a simple dut and only my_driver”</p>
 在书中p50有注释，使用uvm1.2的时候应该格外注意，请通过搜索来将这部分知识补齐吧。</p>
 <p>有的时候会有出现一些小问题，那就尝试着去解决这个问题，解决之后要想一下究竟是哪里逻辑出现了错误。我在做这一个小练习的时候就是明明自己是按书籍上的代码敲的代码，却运行不起来，不由得怀疑人生，甚至一整天都在冥思苦想。到最后却发现是自己没注意或者是自己自作聪明修改的地方出了问题。还有就是有些时候编码的规整是很重要，不论是做软件还是硬件，这都是一个要训练的过程。</p>
 <p>另外，工具的重要性不言而喻，特别是自动补全这个功能，如果预先没有设置vim,那么编码过程也会痛苦不堪，许多重复的代码敲的手疼。当然这也是一个训练的过程，如果时间够多，可以完全手敲，体会验证平台一步一步完善的思路和过程。如果想要快速刷完这一个练习，并且不使用copy的方法，最快的方案就是调教你的vim，让它智能的帮助你。在编码的过程中，时不时更新你的vim词典。</p>
-<p>2023.05.18 孺子牛大厦 
-ZhaoPeng @ BOSC</p>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
         <a href="../../MCU/miniOSv2/" class="btn btn-neutral float-left" title="miniOSv2"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../../about/" class="btn btn-neutral float-right" title="关于我">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../YSYX/nemu/" class="btn btn-neutral float-right" title="NEMU学习心得">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -582,18 +592,19 @@ ZhaoPeng @ BOSC</p>
       <span><a href="../../MCU/miniOSv2/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../YSYX/nemu/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
-    <script>var base_url = '../..';</script>
-    <script src="../../js/theme_extra.js" defer></script>
-    <script src="../../js/theme.js" defer></script>
-      <script src="../../search/main.js" defer></script>
-    <script defer>
-        window.onload = function () {
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
             SphinxRtdTheme.Navigation.enable(true);
-        };
+        });
     </script>
 
 </body>

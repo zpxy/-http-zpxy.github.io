@@ -5,15 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       <link rel="shortcut icon" href="../../img/favicon.ico" />
-    <title>stc8051 - zpxy的开源主页</title>
+    <title>打造一个良好的使用环境 - zpxy的开源主页</title>
     <link rel="stylesheet" href="../../css/theme.css" />
     <link rel="stylesheet" href="../../css/theme_extra.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
     
       <script>
         // Current page data
-        var mkdocs_page_name = "stc8051";
-        var mkdocs_page_input_path = "MCU/stc8051.md";
+        var mkdocs_page_name = "\u6253\u9020\u4e00\u4e2a\u826f\u597d\u7684\u4f7f\u7528\u73af\u5883";
+        var mkdocs_page_input_path = "ubuntu/how-to-use-ubuntu.md";
         var mkdocs_page_url = null;
       </script>
     
@@ -44,14 +44,12 @@
                 </li>
               </ul>
               <p class="caption"><span class="caption-text">单片机</span></p>
-              <ul class="current">
-                  <li class="toctree-l1"><a class="reference internal" href="../gd32/">gd32</a>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MCU/gd32/">gd32</a>
                   </li>
-                  <li class="toctree-l1 current"><a class="reference internal current" href="./">stc8051</a>
-    <ul class="current">
-    </ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MCU/stc8051/">stc8051</a>
                   </li>
-                  <li class="toctree-l1"><a class="reference internal" href="../miniOSv2/">miniOSv2</a>
+                  <li class="toctree-l1"><a class="reference internal" href="../../MCU/miniOSv2/">miniOSv2</a>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">验证之路</span></p>
@@ -67,8 +65,10 @@
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">ubuntu折腾指南</span></p>
-              <ul>
-                  <li class="toctree-l1"><a class="reference internal" href="../../ubuntu/how-to-use-ubuntu/">打造一个良好的使用环境</a>
+              <ul class="current">
+                  <li class="toctree-l1 current"><a class="reference internal current" href="./">打造一个良好的使用环境</a>
+    <ul class="current">
+    </ul>
                   </li>
               </ul>
               <p class="caption"><span class="caption-text">==============</span></p>
@@ -90,8 +90,8 @@
         <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
-          <li class="breadcrumb-item">单片机</li>
-      <li class="breadcrumb-item active">stc8051</li>
+          <li class="breadcrumb-item">ubuntu折腾指南</li>
+      <li class="breadcrumb-item active">打造一个良好的使用环境</li>
     <li class="wy-breadcrumbs-aside">
     </li>
   </ul>
@@ -100,13 +100,46 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
             <div class="section" itemprop="articleBody">
               
-                <h1 id="fpga8051">推荐大家看一下基于FPGA的8051软核设计</h1>
+                <h1 id="ubuntu">UBUNTU 工作环境打造</h1>
+<p>1.前言</p>
+<p>选择ubuntu系统的另外一个原因就是，很多很多稳定可用的软件、解决问题的答案都是基于ubuntu系统，因此为了节约大家的时间精力，我们使用ubuntu这个稳定优先的系统。</p>
+<p>在Ubuntu上我们一般很难获得和深度系统一样的体验，国内的一些软件并没有将其Linux的安装包同步到Ubuntu中，然而我们很多计算机实验课的教程都是基于Ubuntu系统教学，因此为了方便在Ubuntu上进行工作，现在公布一份在Ubuntu上进行优化折腾的方案。</p>
+<p>2.方案</p>
+<ul>
+<li>
+<p>确保自己安装了Ubunru 22.04。从ubuntu官网下载镜像，并安装到自己的物理机上。</p>
+</li>
+<li>
+<p>安装星火应用商店，并且将Ubuntu的软件源切换为阿里源或者是腾讯源。星火应用商店网址：https://spark-app.store/</p>
+</li>
+</ul>
+<p><img alt="星火应用商店" src="../../img/sparksrore.png" /></p>
+<ul>
+<li>安装原生微信Universal，并且按照星火商店中教程，替换一下托盘js文件，这样就可以做到微信后台挂载运行了。安装原生QQ，安装原生WPS, 如果不喜欢WPS的新版，可以安装WPS的旧版，这样就可以进行简单办公。常用字体可以直接去windows中的字体目录下拷贝，然后双击安装到ubuntu中即可。</li>
+</ul>
+<p><img alt="效果图" src="../../img/ubuntu-result.png" /></p>
+<ul>
+<li>更新自己的输入法，建议安装中州韵输入法，可定制性高，我选择使用雾凇拼音的词典，然后添加到明月拼音的词典中就可以了。</li>
+</ul>
+<p>(1) 雾凇拼音的词库位置  git@github.com:iDvel/rime-ice.git</p>
+<p>(2) 我的明月拼音的设置  git@github.com:zpxy/fcitx-rime-settings.git</p>
+<ul>
+<li>
+<p>安装星火应用商店中打包好的稻壳阅读器，可以阅读很多格式的文档，特别没有加入网页功能，只在本地运行，十分好用，对于阅读论文和文献是十分有利的</p>
+</li>
+<li>
+<p>可以直接去<strong>virtualbox的官网下载专门给ubuntu 22.04 编译好的二进制文件</strong>，这是最快安装virtualbox的方案，我在网络上花费两天时间探索在仓库中安装virtualbox会报非常多错误，普通人根本没有一丁点儿的机会去解决这些冲突的问题，万一又给搞坏了系统就得不偿失了。</p>
+</li>
+<li>
+<p>小tips:<strong>请不要使用铜豌豆应用商店</strong>，否则你的ubuntu将直接退化为debian12 ，并且很多软件包将会冲突，导致自己的系统搞坏。因此我们选择<strong>星火应用商店</strong>来进行中文软件的安装，并且像网易云、百度网盘这些都开发了linux版本的程序，基本上都会针对ubuntu进行适配</p>
+</li>
+</ul>
               
             </div>
           </div><footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
-        <a href="../gd32/" class="btn btn-neutral float-left" title="gd32"><span class="icon icon-circle-arrow-left"></span> Previous</a>
-        <a href="../miniOSv2/" class="btn btn-neutral float-right" title="miniOSv2">Next <span class="icon icon-circle-arrow-right"></span></a>
+        <a href="../../YSYX/npc/" class="btn btn-neutral float-left" title="NPC学习心得"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../about/" class="btn btn-neutral float-right" title="关于我">Next <span class="icon icon-circle-arrow-right"></span></a>
     </div>
 
   <hr/>
@@ -129,10 +162,10 @@
   <span class="rst-current-version" data-toggle="rst-current-version">
     
     
-      <span><a href="../gd32/" style="color: #fcfcfc">&laquo; Previous</a></span>
+      <span><a href="../../YSYX/npc/" style="color: #fcfcfc">&laquo; Previous</a></span>
     
     
-      <span><a href="../miniOSv2/" style="color: #fcfcfc">Next &raquo;</a></span>
+      <span><a href="../../about/" style="color: #fcfcfc">Next &raquo;</a></span>
     
   </span>
 </div>
